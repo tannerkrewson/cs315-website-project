@@ -1,0 +1,85 @@
+* {
+		margin: 0;
+		padding: 0;
+		}
+
+html {
+		font-size: 100%;
+		}
+
+body {
+		font: 62.5%/1.5 Verdana, Arial, Helvetica, sans-serif;
+		background: #dddddd;
+                padding-bottom: 2em;
+		}
+
+p {
+		font: 1.1em/1.4 Verdana, Arial, Helvetica, sans-serif;
+		margin-bottom: 1em;
+		}
+
+#wrapper {
+		width: 700px;
+		margin: 0 auto;
+		background: #ffffaa;
+		}
+
+#profimage {
+		float: right;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+
+#content {
+		font: 1.3em/1.4 Verdana, Arial, Helvetica, sans-serif;
+		padding: 15px 15px 15px;
+		border-right: 1px solid #898989;
+		border-bottom: 1px solid #898989;
+		border-left: 1px solid #898989;
+		}
+
+#navContainer {
+		font: 1.1em Arial, Helvetica, sans-serif;
+		text-align: center;
+		padding: 20px 0 0;
+		border-bottom: 1px solid #909090;
+		background: #dddddd;
+		}
+
+#navigation ul {
+		padding: 0 0 5px;
+		}
+
+#navigation li {
+		display: inline;
+		}
+
+#navigation a:link, #navigation a:visited {
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #000000;
+		background: #ccccff;
+		border: 1px solid #898989;
+		padding: 5px 10px;
+		position: relative;
+		margin-right: 5px;
+		}
+
+
+#navigation a:visited {
+		color: #222222;
+		}
+
+#navigation a:hover {
+		text-decoration: underline;
+		background: #cccccc;
+		}
+
+#homePage #homePageLink a:link, #homePage #homePageLink a:visited, #Class1Page #Class1PageLink a:link, #Class1Page #Class1PageLink a:visited, #Class2Page #Class2PageLink a:link, #Class2Page #Class2PageLink a:visited {
+		background: #ffffaa;
+		border-bottom-color: #ffffaa;
+		}
+
+li {
+    margin-left: 20px;
+   }
