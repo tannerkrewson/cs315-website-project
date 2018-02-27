@@ -1,0 +1,40 @@
+.nav-col td {
+	border: 2px solid black;
+	text-align: center;
+	padding: 4px;
+	min-width: 100px;
+}
+#dogs-col {
+	float: left;
+}
+#cats-col {
+	float: right;
+}
+.content {
+	max-width: 50em;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Cabin', sans-serif;
+}
+img {
+	height: 313px;
+}
+.col {
+	display: inline-block;
+	vertical-align: top;
+}
+th {
+	font-size: 24px;
+}
+
+body {
+	background: linear-gradient(to right, #9CE7E8 0%, #C0FFE5 100%);
+}
+
+.footer {
+	clear: both;
+	font-style: italic;
+}
+.nav-horiz {
+	margin-bottom: 12px;
+}
