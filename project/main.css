@@ -1,8 +1,12 @@
-.nav-col td {
+.nav td{
 	border: 2px solid black;
 	text-align: center;
 	padding: 4px;
 	min-width: 100px;
+}
+.nav-horiz h4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 #dogs-col {
 	float: left;
@@ -23,18 +27,32 @@ img {
 	display: inline-block;
 	vertical-align: top;
 }
-th {
-	font-size: 24px;
+.nav-title {
+	min-width: 110px;
 }
-
+.nav-title i {
+	font-size: 24px;
+	margin: 16px;
+}
 body {
 	background: linear-gradient(to right, #9CE7E8 0%, #C0FFE5 100%);
 }
-
 .footer {
 	clear: both;
 	font-style: italic;
 }
 .nav-horiz {
 	margin-bottom: 12px;
+}
+.page-top {
+	text-align: left;
+	display: flex;
+}
+.page-title {
+	max-width: 512px;
+	text-align: center;
+}
+.article {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
 }
