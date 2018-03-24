@@ -24,6 +24,9 @@
 									<td>
 										<a href="../quiz/">Quiz</a>
 									</td>
+									<td>
+										<a href="../tips/">Tips</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -37,7 +40,7 @@
 										<a href="<?= getPath("dogs", "breeds.php"); ?>">Breeds</a>
 									</td>
 									<td>
-										<a href="<?= getPath("dogs", "tips.php"); ?>">Care</a>
+										<a href="<?= getPath("dogs", "care.php"); ?>">Care</a>
 									</td>
 									<td>
 										<a href="<?= getPath("dogs", "pictures.php"); ?>">Pictures</a>
@@ -56,7 +59,7 @@
 										<a href="<?= getPath("cats", "breeds.php"); ?>">Breeds</a>
 									</td>
 									<td>
-										<a href="<?= getPath("cats", "tips.php"); ?>">Care</a>
+										<a href="<?= getPath("cats", "care.php"); ?>">Care</a>
 									</td>
 									<td>
 										<a href="<?= getPath("cats", "pictures.php"); ?>">Pictures</a>
