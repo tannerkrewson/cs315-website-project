@@ -34,13 +34,13 @@
 							<tbody>
 								<tr>
 									<td>
-										<a href="<?php getPath("dogs", "breeds.php"); ?>">Breeds</a>
+										<a href="<?= getPath("dogs", "breeds.php"); ?>">Breeds</a>
 									</td>
 									<td>
-										<a href="<?php getPath("dogs", "tips.php"); ?>">Care</a>
+										<a href="<?= getPath("dogs", "tips.php"); ?>">Care</a>
 									</td>
 									<td>
-										<a href="<?php getPath("dogs", "pictures.php"); ?>">Pictures</a>
+										<a href="<?= getPath("dogs", "pictures.php"); ?>">Pictures</a>
 									</td>
 								</tr>
 							</tbody>
@@ -53,13 +53,13 @@
 							<tbody>
 								<tr>
 									<td>
-										<a href="<?php getPath("cats", "breeds.php"); ?>">Breeds</a>
+										<a href="<?= getPath("cats", "breeds.php"); ?>">Breeds</a>
 									</td>
 									<td>
-										<a href="<?php getPath("cats", "tips.php"); ?>">Care</a>
+										<a href="<?= getPath("cats", "tips.php"); ?>">Care</a>
 									</td>
 									<td>
-										<a href="<?php getPath("cats", "pictures.php"); ?>">Pictures</a>
+										<a href="<?= getPath("cats", "pictures.php"); ?>">Pictures</a>
 									</td>
 								</tr>
 							</tbody>
@@ -68,12 +68,16 @@
 				</div>
 			</div>
 			<?php
+			// constructs the correct relative url path
 			function getPath($directory, $pageName) {
+				global $currentDir;
 				$result = "";
-				if ($directory == $currentDir) {
-					$result += "../";
+				if ($directory !== $currentDir) {
+					$result .= "../" . $directory . "/" . $pageName;
+				} else {
+					$result .= $pageName;
 				}
-				$result += $directory + "/" + $pageName;
+
 				return $result;
 			}
 			?>
