@@ -72,6 +72,10 @@
 			function getPath($directory, $pageName) {
 				global $currentDir;
 				$result = "";
+				// if the page in which this header is being applied to is in
+				// a different directory than the link this function call is
+				// creating, then add "../" to make the link go back one
+				// directory
 				if ($directory !== $currentDir) {
 					$result .= "../" . $directory . "/" . $pageName;
 				} else {
