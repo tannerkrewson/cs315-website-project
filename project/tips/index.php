@@ -35,17 +35,28 @@ END;
 			$email = htmlspecialchars($_POST['email']);
 			$comment = htmlspecialchars($_POST['comment']);
 
-			echo <<<END
-			<h3>Thanks, $name! Your tip has been received.</h3>
-			<h4>Your email: $email</h4>
-			<h4>Your comment: </h4>
-			<p>
-				$comment
-			</p>
-			<form>
-				<button type="submit">Submit Another</button>
-			</form>
+			$email_valid = preg_match("/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/", $email);
+
+			if ($email_valid) {
+				echo <<<END
+				<h3>Thanks, $name! Your tip has been received.</h3>
+				<h4>Your email: $email</h4>
+				<h4>Your comment: </h4>
+				<p>
+					$comment
+				</p>
+				<form>
+					<button type="submit">Submit Another</button>
+				</form>
 END;
+			} else {
+				echo <<<END
+				<h3>There was a problem with your email address. Try again!</h3>
+				<form>
+					<button type="submit">Try Again</button>
+				</form>
+END;
+			}
 		}
 
 		if (isset($_POST['stage']) && ('process' == $_POST['stage'])) {
