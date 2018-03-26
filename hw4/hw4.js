@@ -4,14 +4,29 @@ document.getElementById("the-form").addEventListener("submit", function(e){
 	e.preventDefault();
 
 	// gets strings from inputs, trims off any whitespace, and splits into an array
-	var time = document.getElementById("input-1").value.trim().split(":");
-	var offset = document.getElementById("input-2").value.trim().split(":");
+	var time = document.getElementById("input-1").value;
+	var offset = document.getElementById("input-2").value;
+
+	// check for basic formatting
+	if (time.length > 7 || time.length < 4) {
+		error(time, "Incorrect time format");
+		return;
+	}
+	if (offset.length !== 5) {
+		error(offset, "Incorrect time difference format");
+		return;
+	}
+
+	// trims off any whitespace, and splits into an array
+	time = time.trim().split(":");
+	offset = offset.trim().split(":");
 
 	// if there is no or too many colons
 	if (time.length !== 2) {
 		error(time, "Incorrect time format");
 		return;
-	} else if (offset.length !== 2) {
+	}
+	if (offset.length !== 2) {
 		error(offset, "Incorrect time difference format");
 		return;
 	}
@@ -36,7 +51,7 @@ document.getElementById("the-form").addEventListener("submit", function(e){
 		timeAmPm = "AM";
 	}
 
-	if (timeAmPm !== "AM" || timeAmPm !== "PM") {
+	if (timeAmPm !== "AM" && timeAmPm !== "PM") {
 		error(timeAmPm, "Time AM or PM invalid");
 		return;
 	}
@@ -56,12 +71,11 @@ document.getElementById("the-form").addEventListener("submit", function(e){
 	}
 
 	if (offsetHour === 24 && offsetMins !== 0) {
-		error(offsetHour + ":" + offsetMins, "Time difference cannot exceed 24:00");
+		error(offsetHour + ":" + (offsetMins < 10 ? "0" : "") + offsetMins, "Time difference cannot exceed 24:00");
 		return;
 	}
 
-	var resHours, resMins, resSuffix;
-	var resAmPm = "AM";
+	var resHours, resMins, resAmPm, resSuffix;
 
 	// convert timeHour to military time
 	if (timeHour < 12 && timeAmPm === "PM") {
@@ -75,13 +89,7 @@ document.getElementById("the-form").addEventListener("submit", function(e){
 		resHours = timeHour;
 	}
 
-	resHours += offsetHours; // resHours will now be 0 to 47
-
-	// check if offset hour puts time into next day
-	if (offsetHour >= 24) {
-		resHours -= 24;
-		resSuffix = " + 1 day";
-	}
+	resHours += offsetHour; // resHours will now be 0 to 47
 
 	resMins = timeMins + offsetMins;
 
@@ -91,10 +99,32 @@ document.getElementById("the-form").addEventListener("submit", function(e){
 		resHours++;
 	}
 
+	// check if offset puts time into next day
+	if (resHours >= 24) {
+		resHours -= 24;
+		resSuffix = " + 1 day";
+	} else {
+		resSuffix = "";
+	}
+
 	// convert hours to non-military time
 	if (resHours > 12) {
 		resHours -= 12;
 		resAmPm = "PM";
+	} else if (resHours === 12) {
+		resAmPm = "PM";
+	} else {
+		resAmPm = "AM";
+	}
+
+	// convert 0 am to 12 am
+	if (resHours === 0) {
+		resHours = 12;
+	}
+
+	// add leading zero to minutes
+	if (resMins < 10) {
+		resMins = "0" + resMins;
 	}
 
 	document.getElementById("result").innerHTML =
