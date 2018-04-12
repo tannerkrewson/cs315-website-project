@@ -35,7 +35,7 @@
 	<button id="next-but"> Next -&gt;</button>
 </div>
 
-<script src="care.js"></script>
+<script src="../care.js"></script>
 
 <?php
 	include '../includes/footer.php';
