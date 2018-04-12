@@ -3,16 +3,24 @@ var area = document.getElementById("fetch-area");
 var ball = document.getElementById("fetch-ball");
 var dog = document.getElementById("fetch-dog");
 
+var animationInProgress = false;
+
 // ran when page loads to make sure dog and ball are positioned correctly
 reset();
 
 // ran when the throw button is clicked
 document.getElementById("fetch-throw").addEventListener("click", function () {
-	// bring the dog back to the starting position, if not already there
-	reset();
+	// prevents button from being pressed multiple times and making the
+	// animation buggy
+	if (!animationInProgress) {
+		// bring the dog back to the starting position, if not already there
+		reset();
 
-	// commence the animaton
-	throwBall();
+		animationInProgress = true;
+
+		// commence the animaton
+		throwBall();
+	}
 });
 
 function throwBall() {
@@ -39,6 +47,7 @@ function dogRetrieve(ballPos) {
 	animate(dog, dogStartingPosition, ballPos, dogSpeed, true, function () {
 		// ran after dog has reached the ball
 		putBallInDogsMouth();
+		dogRunBallBack();
 	});
 }
 
@@ -49,6 +58,19 @@ function putBallInDogsMouth() {
 
 	// makes the dog face left
 	dog.style.transform = "scaleX(-1)";
+}
+
+function dogRunBallBack() {
+	var dogStartingPosition = dog.offsetLeft;
+	var ballStartingPosition = ball.offsetLeft;
+	var dogSpeed = 8;
+
+	// animate the dog and the ball moving to the left simultaneously
+	animate(dog, dogStartingPosition, area.offsetLeft+32, dogSpeed, false, function (){});
+	animate(ball, ballStartingPosition, area.offsetLeft, dogSpeed, false, function (){
+		reset();
+		animationInProgress = false;
+	});
 }
 
 function reset () {
