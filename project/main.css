@@ -71,3 +71,20 @@ body {
 .article blockquote {
 	font-style: italic;
 }
+#fetch {
+	clear: both;
+	width: 100%;
+	text-align: left;
+	outline: 2px solid black;
+	height: 100px;
+}
+#fetch-dog {
+	max-height: 64px;
+	position: absolute;
+	left: auto;
+}
+#fetch-ball {
+	max-height: 32px;
+	position: absolute;
+	left: 64px;
+}
