@@ -80,10 +80,10 @@ END;
 
 					    // prepare sql and bind parameters
 					    $stmt = $conn->prepare("INSERT INTO `hw5` (`firstname`, `lastname`, `age`)
-					    VALUES (':firstname', ':lastname', :age)");
+					    VALUES (:firstname, :lastname, :age)");
 					    $stmt->bindParam(':firstname', $first_name);
 					    $stmt->bindParam(':lastname', $last_name);
-					    $stmt->bindParam(':age', age);
+					    $stmt->bindParam(':age', $age);
 					    $stmt->execute();
 					} catch(PDOException $e) {
 					    echo "Error: " . $e->getMessage();
