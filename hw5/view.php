@@ -26,9 +26,11 @@
 				// set the PDO error mode to exception
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+				// select all rows from the database
 				$result = $conn->prepare("SELECT `key`, `firstname`, `lastname`, `age` FROM `hw5`");
 				$result->execute();
 
+				// for each row in the database, get each column, and print as a table row
 				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 					$key = $row['key'];
 					$first_name = $row['firstname'];

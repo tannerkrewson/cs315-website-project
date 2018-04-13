@@ -78,9 +78,11 @@ END;
 					    // set the PDO error mode to exception
 					    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-					    // prepare sql and bind parameters
+					    // insert the user's entry into the table
 					    $stmt = $conn->prepare("INSERT INTO `hw5` (`firstname`, `lastname`, `age`)
 					    VALUES (:firstname, :lastname, :age)");
+
+						// bind parameters to the above command
 					    $stmt->bindParam(':firstname', $first_name);
 					    $stmt->bindParam(':lastname', $last_name);
 					    $stmt->bindParam(':age', $age);
