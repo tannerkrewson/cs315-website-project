@@ -26,7 +26,7 @@
 				// set the PDO error mode to exception
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-				$result = $conn->prepare("SELECT key, firstname, lastname, age FROM hw5");
+				$result = $conn->prepare("SELECT `key`, `firstname`, `lastname`, `age` FROM `hw5`");
 				$result->execute();
 
 				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -35,10 +35,10 @@
 					$last_name = $row['lastname'];
 					$age = $row['age'];
 					echo "<tr>";
-					echo "<td>'$key'</td>";
-					echo "<td>'$first_name'</td>";
-					echo "<td>'$last_name'</td>";
-					echo "<td>'$age'</td>";
+					echo "<td>$key</td>";
+					echo "<td>$first_name</td>";
+					echo "<td>$last_name</td>";
+					echo "<td>$age</td>";
 					echo "</tr>";
 				}
 			} catch(PDOException $e) {
