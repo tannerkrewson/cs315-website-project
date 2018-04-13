@@ -66,6 +66,33 @@ END;
 					}
 					echo "<input type=\"button\" value=\"Try Again\" onClick=\"window.location.href=window.location.href\">";
 				} else {
+
+					// sourced from https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+					$servername = "mysql.truman.edu";
+					$username = "tmk5443";
+					$password = "raewahto";
+					$dbname = "tmk5443CS315";
+
+					try {
+					    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+					    // set the PDO error mode to exception
+					    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+					    // prepare sql and bind parameters
+					    $stmt = $conn->prepare("INSERT INTO hw5 (firstname, lastname, age)
+					    VALUES (:firstname, :lastname, :age)");
+					    $stmt->bindParam(':firstname', $first_name);
+					    $stmt->bindParam(':lastname', $last_name);
+					    $stmt->bindParam(':age', age);
+					    $stmt->execute();
+
+					    echo "New records created successfully";
+					} catch(PDOException $e) {
+					    echo "Error: " . $e->getMessage();
+						return;
+					}
+					$conn = null;
+
 					echo <<<END
 					<h3>Your data has been submitted!</h3>
 					<p>
