@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tanner Krewson - CS 315 Project Milestone 4 Annotation</title>
+	</head>
+	<body>
+		<h2>Tanner Krewson - CS 315 Project Milestone 4 Annotation</h2>
+		<p>
+			For milestone 4, I added the ability for users to submit and view
+			tips about owning pets. This feature is implemented using HTML
+			forms and PHP that connects to MySQL via the PDO interface.
+		</p>
+		<p>
+			Here are the links to the page:<br>
+			<a href="../tips/">The page itself</a><br>
+			<a href="../tips/index.phps">The source code of the index page</a><br>
+			<a href="../tips/tip-list.phps">The source code of just the tips list</a>
+		</p>
+		<p>
+			I have also made the following observations regarding the security
+			of my site as a whole:
+			<ul>
+				<li>
+					The only part of the site that is open to security issues
+					is the tips page, as it allows for user input.
+				</li>
+				<li>
+					When the user submits the Tips form, the first thing that
+					the PHP does is run each field through the htmlspecialchars
+					function. This ensures that all characters that could
+					potentially be used for HTML injection are escaped.
+				</li>
+				<li>
+					To make sure that an invalid email is not entered by the
+					user on accident (or maliciously), the PHP uses regular
+					expressions to verify that the email address is at the very
+					least in the proper format. There is no check to make sure
+					that the email is reachable.
+				</li>
+				<li>
+					If this website was in a production environment, I would
+					want to take the database password out of the publically
+					accessible PHP source code so that someone could not hack
+					it.
+				</li>
+				<li>
+					The PHP then uses the PDO interface's prepare function to
+					protect against SQL injections.
+				</li>
+				<li>
+					The PHP code for displaying the contents of the database
+					displays all rows unconditionally, and does not make any
+					checks on the contents. So, if some unescaped HTML were to
+					somehow make it into the database, it would be displayed.
+				</li>
+				<li>
+					There is also no check on the length of the fields. So,
+					someone could spam the field with very long text and flood
+					the tips page.
+				</li>
+				<li>
+					The tips page also does not prevent someone from using a
+					botnet to submit extremely quickly. In this way, they could
+					also flood the tips page.  I would definitely want to fix
+					these last few points if the page were to released to the
+					world, but do not necessarily pose an immediate security
+					risk as it stands.
+				</li>
+			</ul>
+		</p>
+		<p>
+			Below you can find the table definition for the Tips page:<br>
+			<code>
+				CREATE TABLE `project` (<br>
+				  `id` int(10) UNSIGNED NOT NULL,<br>
+				  `name` text NOT NULL,<br>
+				  `email` text NOT NULL,<br>
+				  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,<br>
+				  `tip` text NOT NULL<br>
+				) ENGINE=InnoDB DEFAULT CHARSET=latin1;<br>
+			</code>
+		</p>
+	</body>
+</html>

@@ -3,6 +3,9 @@
 	include '../includes/header.php';
 ?>
 <div class="article">
+	<?php
+		include './tip-list.php';
+	 ?>
 	<h2>Submit a Tip</h2>
 	<?php
 		function tips()
@@ -38,10 +41,43 @@ END;
 			$email_valid = preg_match("/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/", $email);
 
 			if ($email_valid) {
+
+				// sourced from https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+				$servername = "mysql.truman.edu";
+				$username = "tmk5443";
+				$password = "raewahto";
+				$dbname = "tmk5443CS315";
+
+				try {
+				    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+				    // set the PDO error mode to exception
+				    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+				    // insert the user's entry into the table
+				    $stmt = $conn->prepare("INSERT INTO `project` (`name`, `email`, `tip`)
+				    VALUES (:name, :email, :tip)");
+
+					// bind parameters to the above command
+				    $stmt->bindParam(':name', $name);
+				    $stmt->bindParam(':email', $email);
+					$stmt->bindParam(':tip', $comment);
+				    $stmt->execute();
+				} catch(PDOException $e) {
+					echo "<h3>There was a problem connecting to the database. Try again!</h3>";
+					echo "Error: " . $e->getMessage();
+					echo <<<END
+					<form>
+						<button type="submit">Try Again</button>
+					</form>
+END;
+					return;
+				}
+				$conn = null;
+
 				echo <<<END
 				<h3>Thanks, $name! Your tip has been received.</h3>
 				<h4>Your email: $email</h4>
-				<h4>Your comment: </h4>
+				<h4>Your tip: </h4>
 				<p>
 					$comment
 				</p>
