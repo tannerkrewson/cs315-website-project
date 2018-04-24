@@ -4,13 +4,11 @@
 ?>
 <div class="article">
 	<?php
-		include './tip-list.php';
-	 ?>
-	<h2>Submit a Tip</h2>
-	<?php
 		function tips()
 		{
+			include './tip-list.php';
 			echo <<<END
+			<h2>Submit a Tip</h2>
 			<p>
 				Being a first time pet owner can be difficult. If you have any
 				tips for caring for dogs or cats, please submit them below! Or, take
@@ -82,7 +80,7 @@ END;
 					$comment
 				</p>
 				<form>
-					<button type="submit">Submit Another</button>
+					<button type="submit">Back</button>
 				</form>
 END;
 			} else {
