@@ -2,8 +2,8 @@
 <table border="1">
 	<tr>
 		<th>Name</th>
-		<th>Date</th>
 		<th>Email</th>
+		<th>Date</th>
 		<th>Tip</th>
 	</tr>
 
