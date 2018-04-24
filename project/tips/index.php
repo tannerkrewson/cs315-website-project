@@ -3,13 +3,11 @@
 	include '../includes/header.php';
 ?>
 <div class="article">
-	<?php
-		include './tip-list.php';
-	 ?>
 	<h2>Submit a Tip</h2>
 	<?php
 		function tips()
 		{
+			include './tip-list.php';
 			echo <<<END
 			<p>
 				Being a first time pet owner can be difficult. If you have any
@@ -82,7 +80,7 @@ END;
 					$comment
 				</p>
 				<form>
-					<button type="submit">Submit Another</button>
+					<button type="submit">Back</button>
 				</form>
 END;
 			} else {

@@ -3,6 +3,7 @@
 	<tr>
 		<th>Name</th>
 		<th>Date</th>
+		<th>Email</th>
 		<th>Tip</th>
 	</tr>
 
