@@ -1,0 +1,16 @@
+<!ELEMENT classes (class*)>
+<!ELEMENT class (title, number, professor, time, location, crn, start_date, end_date)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT professor (first_name, last_name)+>
+<!ATTLIST professor
+	gender CDATA "">
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT last_name (#PCDATA)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT crn (#PCDATA)>
+<!ELEMENT start_date (month, year)>
+<!ELEMENT end_date (month, year)>
+<!ELEMENT month (#PCDATA)>
+<!ELEMENT year (#PCDATA)>

@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="xml_style.css"?>
+
+<!DOCTYPE classes SYSTEM "classes.dtd">
+
+<classes>
+	<class>
+		<title>Internet Programming</title>
+		<number>315</number>
+		<professor gender="male">
+			<first_name>Alan</first_name>
+			<last_name>Garvey</last_name>
+		</professor>
+		<time>11:30am</time>
+		<location>VH 1236</location>
+		<crn>2310</crn>
+		<start_date>
+			<month>January</month>
+			<year>2018</year>
+		</start_date>
+		<end_date>
+			<month>May</month>
+			<year>2018</year>
+		</end_date>
+	</class>
+	<class>
+		<title>Computer Architecture and Org</title>
+		<number>330</number>
+		<professor gender="male">
+			<first_name>John</first_name>
+			<last_name>Seiffertt</last_name>
+		</professor>
+		<time>12:30pm</time>
+		<location>VH 1236</location>
+		<crn>2315</crn>
+		<start_date>
+			<month>January</month>
+			<year>2018</year>
+		</start_date>
+		<end_date>
+			<month>May</month>
+			<year>2018</year>
+		</end_date>
+	</class>
+	<class>
+		<title>Computer Networks</title>
+		<number>470</number>
+		<professor gender="male">
+			<first_name>Chetan</first_name>
+			<last_name>Jaiswal</last_name>
+		</professor>
+		<time>9:30am</time>
+		<location>VH 1424</location>
+		<crn>2325</crn>
+		<start_date>
+			<month>January</month>
+			<year>2018</year>
+		</start_date>
+		<end_date>
+			<month>May</month>
+			<year>2018</year>
+		</end_date>
+	</class>
+</classes>

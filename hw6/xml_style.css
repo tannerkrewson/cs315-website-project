@@ -1,0 +1,18 @@
+title {
+    display: block;
+    color: blue;
+    font-size: 24pt;
+    margin-top: 24px;
+}
+number {
+    color: green;
+    font-size: 16pt;
+}
+professor {
+    color: red;
+    font-size: 16pt;
+}
+time, location, crn, start_date, end_date {
+    margin-left: 16pt;
+    border: 1px solid black;
+}
